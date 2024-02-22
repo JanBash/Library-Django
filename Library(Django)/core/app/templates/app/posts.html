@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+    <title>Main</title>
+</head>
+<body>
+    
+<style>
+    body {
+            font-family: Montserrat, bold;
+            margin: 0;
+            padding: 0;
+            background-color: #f5e6ff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+    }
+    nav {
+            background-color: #8979da;
+            color: white;
+            text-align: center;
+            padding: 10px;
+    }
+    ul {
+            list-style-type: none;
+            padding: 0;
+    }
+    ul li {
+            display: inline-block;
+            margin-right: 30px;
+            font-size: 25px; 
+            margin-left: 45px;
+            margin-bottom: 1rem;
+            text-align: center;
+     }
+    ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px; 
+            margin-bottom: 1rem;
+            text-align: center;
+    }
+    ul li a:hover {
+            text-decoration: underline;
+            font-size: 19px; 
+            margin-bottom: 1rem;
+            text-align: center;
+    }
+
+
+    b  .post_title {
+    font-size: 30px; 
+    margin-bottom: 15px;
+    text-align: center;
+    }
+
+    b  .post_content {
+    font-size: 25px; 
+    margin-bottom: 15px;
+    text-align: left;
+    color: #660066;
+    }
+    
+    b  .post_author_username {
+    font-size: 20px; 
+    margin-bottom: 15px;
+    text-align: right;
+    }
+
+
+    footer {
+    background-color: #8979da;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+    }
+    .about-info, .additional-info {
+    max-width: 550px;
+    margin: 0 auto;
+    }
+    .about-info h3, .additional-info h3 {
+    color: #ffffff;
+    font-size: 25px;
+    margin-bottom: 10px;
+    }
+    .about-info p, .additional-info ul, .additional-info li {
+    font-size: 20px;
+    line-height: 1;
+    }
+    .additional-info ul {
+    list-style-type: none;
+    }
+    .additional-info ul li {
+    margin-bottom: 50px;
+    }
+
+</style>
+
+<nav>
+        <ul>
+        <li><a href="/">Главная</a></li>
+        {% for category in categories %}    
+            <li><a href="?category_name={{category.name|lower}}">{{category.name}}</a></li>
+        {% endfor %}
+        </ul>
+</nav> 
+
+    {% for post in posts %}
+    <b class="section1">
+        <div class="post_title">
+            <a href="{{post.id}}">{{post.title}}</a>
+        </div>
+            <div class="post_content">{{post.content}}</div>
+            <div class="post_author_username">{{ post.author.username }}</div>
+            <br>
+                <hr>
+            </br>
+    </b>
+    {% endfor %}
+
+<footer>
+        <div class="about-info">
+          <h3>SHAKIROV JANBASH - AYDAROV ALLAH</h3>
+          <p>Python</p>
+          <p>HTML</p>
+          <p>Телефон: +996708003719</p>
+          <p>Email: jan13_2018.29@mail.ru</p>
+        </div>
+</footer>
+</body>
+</html>
